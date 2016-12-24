@@ -12,7 +12,7 @@ ENDIF()
 find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIR})
 
-file(GLOB TRUCO_SRC src/*.cpp)
+file(GLOB TRUCO_SRC ${CMAKE_SOURCE_DIR}/src/*.cpp)
 
 add_executable(truco-cli ${TRUCO_SRC})
 target_link_libraries(truco-cli ${CURSES_LIBRARIES})
