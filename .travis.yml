@@ -10,5 +10,4 @@ addons:
     packages:
         - cmake
 script:
-    - ls -a
     - cmake . && make && ./test/truco-tests
