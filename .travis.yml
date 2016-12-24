@@ -1,0 +1,16 @@
+language: cpp
+compiler:
+    - gcc
+    - clang
+os:
+    - linux
+    - osx
+addons:
+  apt:
+    packages:
+        - cmake
+script:
+    - mkdir build
+    - cd build
+    - cmake .. && make
+    - ./test/truco-tests
