@@ -13,13 +13,19 @@ TEST_CASE("Envido")
     {
         Envido envido;
 
+        REQUIRE(envido.retador() == trc::EquipoId::Nada);
+        REQUIRE(envido.tantos() == 0);
+        REQUIRE(envido.reto() == 0);
+
         REQUIRE(envido.envido(EquipoId::E1) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E1);
         REQUIRE(envido.tantos() == 0);
         REQUIRE(envido.reto() == 2);
 
-        envido.quiero(EquipoId::E2);
+        REQUIRE(envido.quiero(EquipoId::E2) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E1);
         REQUIRE(envido.tantos() == 2);
         REQUIRE(envido.reto() == 0);
     }
@@ -30,11 +36,13 @@ TEST_CASE("Envido")
 
         REQUIRE(envido.envido(EquipoId::E2) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E2);
         REQUIRE(envido.tantos() == 0);
         REQUIRE(envido.reto() == 2);
 
         REQUIRE(envido.no_quiero(EquipoId::E1) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E2);
         REQUIRE(envido.tantos() == 1);
         REQUIRE(envido.reto() == 0);
     }
@@ -45,11 +53,13 @@ TEST_CASE("Envido")
 
         REQUIRE(envido.real_envido(EquipoId::E1) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E1);
         REQUIRE(envido.tantos() == 0);
         REQUIRE(envido.reto() == 3);
 
         REQUIRE(envido.quiero(EquipoId::E2) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E1);
         REQUIRE(envido.tantos() == 3);
         REQUIRE(envido.reto() == 0);
     }
@@ -60,11 +70,13 @@ TEST_CASE("Envido")
 
         REQUIRE(envido.real_envido(EquipoId::E2) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E2);
         REQUIRE(envido.tantos() == 0);
         REQUIRE(envido.reto() == 3);
 
         REQUIRE(envido.no_quiero(EquipoId::E1) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E2);
         REQUIRE(envido.tantos() == 1);
         REQUIRE(envido.reto() == 0);
     }
@@ -75,16 +87,19 @@ TEST_CASE("Envido")
 
         REQUIRE(envido.envido(EquipoId::E1) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E1);
         REQUIRE(envido.tantos() == 0);
         REQUIRE(envido.reto() == 2);
 
         REQUIRE(envido.envido(EquipoId::E2) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E2);
         REQUIRE(envido.tantos() == 2);
         REQUIRE(envido.reto() == 2);
 
         REQUIRE(envido.quiero(EquipoId::E1) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E2);
         REQUIRE(envido.tantos() == 4);
         REQUIRE(envido.reto() == 0);
     }
@@ -95,16 +110,19 @@ TEST_CASE("Envido")
 
         REQUIRE(envido.envido(EquipoId::E2) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E2);
         REQUIRE(envido.tantos() == 0);
         REQUIRE(envido.reto() == 2);
 
         REQUIRE(envido.envido(EquipoId::E1) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E1);
         REQUIRE(envido.tantos() == 2);
         REQUIRE(envido.reto() == 2);
 
         REQUIRE(envido.no_quiero(EquipoId::E2) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E1);
         REQUIRE(envido.tantos() == 2);
         REQUIRE(envido.reto() == 0);
     }
@@ -115,16 +133,19 @@ TEST_CASE("Envido")
 
         REQUIRE(envido.envido(EquipoId::E1) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E1);
         REQUIRE(envido.tantos() == 0);
         REQUIRE(envido.reto() == 2);
 
         REQUIRE(envido.real_envido(EquipoId::E2) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E2);
         REQUIRE(envido.tantos() == 2);
         REQUIRE(envido.reto() == 3);
 
         REQUIRE(envido.quiero(EquipoId::E1) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E2);
         REQUIRE(envido.tantos() == 5);
         REQUIRE(envido.reto() == 0);
     }
@@ -135,16 +156,19 @@ TEST_CASE("Envido")
 
         REQUIRE(envido.envido(EquipoId::E2) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E2);
         REQUIRE(envido.tantos() == 0);
         REQUIRE(envido.reto() == 2);
 
         REQUIRE(envido.real_envido(EquipoId::E1) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E1);
         REQUIRE(envido.tantos() == 2);
         REQUIRE(envido.reto() == 3);
 
         REQUIRE(envido.no_quiero(EquipoId::E2) == true);
 
+        REQUIRE(envido.retador() == trc::EquipoId::E1);
         REQUIRE(envido.tantos() == 2);
         REQUIRE(envido.reto() == 0);
     }
