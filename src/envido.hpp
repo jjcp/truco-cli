@@ -63,12 +63,10 @@ public:
 
         if (m_reto > 0 and equipo_id != m_retador)
         {
-            m_reto = 0;
             m_tantos = m_tantos <= 0 ? 1 : m_tantos;
-
+            m_reto = 0;
             return true;
         }
-
         return false;
     }
 
@@ -80,6 +78,11 @@ public:
     auto reto() const
     {
         return m_reto;
+    }
+
+    auto retador() const
+    {
+        return m_retador;
     }
 
 private:
