@@ -1,3 +1,4 @@
 # truco-cli
+---
 
-Truco Uruguayo para el gaucho moderno.
+## Truco Uruguayo Para El Gaucho Moderno.
