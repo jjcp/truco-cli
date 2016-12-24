@@ -86,7 +86,7 @@ public:
     }
 
 private:
-    trc::EquipoId m_retador;
+    trc::EquipoId m_retador = trc::EquipoId::Nada;
     int           m_tantos = 0; /// Cantidad de tantos aceptados.
     int           m_reto = 0;   /// Cantidad de tantos por aceptar.
 };
