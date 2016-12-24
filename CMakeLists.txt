@@ -14,7 +14,7 @@ include_directories(${CURSES_INCLUDE_DIR})
 
 file(GLOB TRUCO_SRC ${CMAKE_SOURCE_DIR}/src/*.cpp)
 
-add_executable(truco-cli ${TRUCO_SRC})
+add_executable(truco-cli src/main.cpp)
 target_link_libraries(truco-cli ${CURSES_LIBRARIES})
 
 add_subdirectory(test)
