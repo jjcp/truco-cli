@@ -6,6 +6,7 @@ namespace trc {
 
 enum class Palo
 {
+    Nada,
     Oro,
     Copa,
     Espada,
@@ -18,6 +19,7 @@ inline auto to_cstr(const trc::Palo palo)
 {
     switch(palo)
     {
+    case Palo::Nada: return "Nada";
     case Palo::Oro: return "Oro";
     case Palo::Copa: return "Copa";
     case Palo::Espada: return "Espada";

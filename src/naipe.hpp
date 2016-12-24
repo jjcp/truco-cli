@@ -12,9 +12,12 @@ namespace trc {
 class Naipe {
 public:
 
+    Naipe() = default;
+
     Naipe(int valor, trc::Palo palo)
     {
         assert((valor >= 1 and valor <= 7) or (valor >= 10 and valor <= 12));
+        assert(palo != trc::Palo::Nada);
 
         m_valor = valor;
         m_palo = palo;
@@ -31,8 +34,8 @@ public:
     }
 
 private:
-    trc::Palo m_palo;
-    int       m_valor;
+    trc::Palo m_palo = trc::Palo::Nada;
+    int       m_valor = 0;
 };
 
 
