@@ -12,5 +12,4 @@ addons:
 script:
     - mkdir build
     - cd build
-    - cmake .. && make
-    - ./test/truco-tests
+    - cmake .. && make && ./test/truco-tests
