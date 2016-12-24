@@ -8,6 +8,9 @@
 
 namespace trc {
 
+/**
+ * @brief Maneja el flujo: tocar [revirar...] (querer|no querer).
+ */
 class Envido {
 public:
 
