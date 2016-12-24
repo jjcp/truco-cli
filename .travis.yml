@@ -1,13 +1,19 @@
 dist: trusty
 language: cpp
 compiler:
-    - gcc
-    - clang
+  - gcc
 os:
-    - linux
+  - linux
 addons:
   apt:
     packages:
-        - cmake
+      - cmake
+install:
+  # Upgrade GCC
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq g++-6
+  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 60 --slave /usr/bin/g++ g++ /usr/bin/g++-6
+
 script:
-    - cmake . && make && ./test/truco-tests
+  - cmake . && make && ./test/truco-tests
