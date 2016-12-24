@@ -1,3 +1,3 @@
 # truco-cli
 
-Truco Uruguayo en la terminal para el gaucho moderno.
+Truco Uruguayo para el gaucho moderno.
