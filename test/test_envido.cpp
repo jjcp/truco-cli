@@ -172,4 +172,28 @@ TEST_CASE("Envido")
         REQUIRE(envido.tantos() == 2);
         REQUIRE(envido.reto() == 0);
     }
+
+    SECTION("trc::Envido::estado()")
+    {
+        Envido envido;
+
+        REQUIRE(envido.estado() == Envido::Estado::Nada);
+
+        envido.real_envido(EquipoId::E1);
+        REQUIRE(envido.estado() == Envido::Estado::EnProceso);
+
+        envido.envido(EquipoId::E2);
+        REQUIRE(envido.estado() == Envido::Estado::EnProceso);
+
+        envido.quiero(EquipoId::E1);
+        REQUIRE(envido.estado() == Envido::Estado::Querido);
+
+        envido = Envido{};
+
+        envido.envido(EquipoId::E1);
+        REQUIRE(envido.estado() == Envido::Estado::EnProceso);
+
+        envido.no_quiero(EquipoId::E2);
+        REQUIRE(envido.estado() == Envido::Estado::NoQuerido);
+    }
 }

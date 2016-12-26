@@ -14,6 +14,13 @@ namespace trc {
 class Envido {
 public:
 
+    enum class Estado {
+        Nada,
+        EnProceso,
+        Querido,
+        NoQuerido
+    };
+
     bool envido(const trc::EquipoId equipo_id)
     {
         return x_tantos_envido(equipo_id, 2);
@@ -39,6 +46,7 @@ public:
             m_retador = equipo_id;
             m_tantos += m_reto;
             m_reto = tantos;
+            m_estado = Estado::EnProceso;
             return true;
         }
         return false;
@@ -52,6 +60,7 @@ public:
         {
             m_tantos += m_reto;
             m_reto = 0;
+            m_estado = Estado::Querido;
             return true;
         }
         return false;
@@ -65,6 +74,7 @@ public:
         {
             m_tantos = m_tantos <= 0 ? 1 : m_tantos;
             m_reto = 0;
+            m_estado = Estado::NoQuerido;
             return true;
         }
         return false;
@@ -85,8 +95,15 @@ public:
         return m_retador;
     }
 
+    auto estado() const
+    {
+        return m_estado;
+    }
+
 private:
+
     trc::EquipoId m_retador = trc::EquipoId::Nada;
+    Estado        m_estado = Estado::Nada;
     int           m_tantos = 0; /// Cantidad de tantos aceptados.
     int           m_reto = 0;   /// Cantidad de tantos por aceptar.
 };
