@@ -19,7 +19,7 @@ public:
     }
 
 private:
-    trc::EquipoId m_equipo;
+    const trc::EquipoId m_equipo;
 };
 
 } /* trc */
